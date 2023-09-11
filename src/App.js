@@ -1,23 +1,49 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import "./App.css";
+import EnterAmount from "./components/EnterAmount/EnterAmount";
+import VerifyPhoneNumber from "./components/VerifyPhoneNumber/VerifyPhoneNumber";
+import OTP from "./components/OTP/OTP";
+import Confirmation from "./components/Confirmation/Confirmation";
 
 function App() {
+  const [step, setStep] = useState(1);
+  const [phoneNumber, setPhoneNumber] = useState("");
+
+  const handleNext = (newPhoneNumber) => {
+    if (step === 1) {
+      setStep(2);
+    } else if (step === 2) {
+      setPhoneNumber(newPhoneNumber);
+      setStep(3);
+    } else if (step === 3) {
+      setStep(4);
+    }
+  };
+
+  const handleReturn = () => {
+    if (step > 1) {
+      setStep(1);
+    }
+  };
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {/* Render the components based on the current step */}
+      {step === 1 && <EnterAmount onNext={handleNext} />}
+      {step === 2 && (
+        <VerifyPhoneNumber
+          onProceed={handleNext}
+          onCancel={handleReturn}
+          onNotYourPhoneNumber={handleReturn}
+        />
+      )}
+      {step === 3 && (
+        <OTP
+          onNext={handleNext}
+          onCancel={handleReturn}
+          phoneNumber={phoneNumber}
+        />
+      )}
+      {step === 4 && <Confirmation onReturn={handleReturn} />}
     </div>
   );
 }
