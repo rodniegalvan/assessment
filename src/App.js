@@ -27,7 +27,6 @@ function App() {
   };
   return (
     <div className="App">
-      {/* Render the components based on the current step */}
       {step === 1 && <EnterAmount onNext={handleNext} />}
       {step === 2 && (
         <VerifyPhoneNumber
