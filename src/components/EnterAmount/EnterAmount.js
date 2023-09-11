@@ -55,7 +55,7 @@ function EnterAmount({
         {amountEmpty && (
           <p className="error-message">Amount cannot be empty.</p>
         )}
-        <h3>Choose what BPI account to debit from:</h3>
+        <p>Choose what BPI account to debit from:</p>
         <div className="account-details-wrapper">
           {savingsAccounts.map((account, index) => (
             <div key={account.value} className="account-details">

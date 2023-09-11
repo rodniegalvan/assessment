@@ -54,6 +54,7 @@
     box-shadow: none;
     border: none;
     height: auto;
-    padding: 20px;
+    padding: 0 20px;
+    width: auto;
   }
 }
