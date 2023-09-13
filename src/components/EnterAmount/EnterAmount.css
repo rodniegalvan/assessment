@@ -45,7 +45,7 @@
   color: rgb(60, 60, 60);
 }
 hr {
-  margin: 1em 0;
+  margin: 0.5em 0;
 }
 .form-container input[type="radio"] {
   margin-left: 5px;
