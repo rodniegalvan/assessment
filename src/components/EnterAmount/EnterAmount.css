@@ -66,6 +66,6 @@ input.error {
   text-align: start;
   }
   .input-amount {
-    max-width: 300px;
+    max-width: 250px;
   }
 }
