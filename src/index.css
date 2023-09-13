@@ -111,6 +111,7 @@ button {
     display: flex;
     flex-direction: column-reverse;
     align-items: center;
+    gap: 0.5em;
   }
   .prev{
     margin: 0;

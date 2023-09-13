@@ -34,7 +34,6 @@
 .account-number-wrapper {
   display: flex;
   flex-direction: column;
-  margin-bottom: 20px;
   letter-spacing: 1px;
 }
 .account-number {
@@ -46,7 +45,7 @@
   color: rgb(60, 60, 60);
 }
 hr {
-  margin: 0;
+  margin: 1em 0;
 }
 .form-container input[type="radio"] {
   margin-left: 5px;
