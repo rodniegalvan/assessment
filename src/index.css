@@ -25,7 +25,7 @@ p {
 a {
   font-size: 12px;
   text-decoration: none;
-  color: #007bff;
+  color: #007AE2;;
 }
 button {
   font-size: 12px;
@@ -35,7 +35,7 @@ button {
 .next {
   margin-top: 20px;
   padding: 10px 30px;
-  background-color: #007bff;
+  background-color: #007AE2;;
   color: #fff;
   border: none;
   border-radius: 0.25em;
@@ -45,8 +45,8 @@ button {
   margin-top: 20px;
   padding: 10px 30px;
   background-color: #fff;
-  color: #007bff;
-  border: solid 1px #007bff;
+  color: #007AE2;;
+  border: solid 1px #007AE2;;
   border-radius: 0.25em;
   cursor: pointer;
 }
@@ -77,15 +77,12 @@ button {
   border-radius: 0.5em;
 }
 .next:hover {
-  background-color: #0056b3; 
-  color: #fff;
+  background-color: #187BCD; 
 }
 
 
 .prev:hover {
   background-color: #f0f0f0; 
-  color: #007bff;
-  border-color: #007bff;
 }
 
 @media (max-width: 768px) {

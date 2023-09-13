@@ -6,7 +6,7 @@ function Confirmation({ onReturn }) {
   return (
     <div className="form-container">
       <div className="confirmation-wrapper">
-        <CheckCircleFilled style={{ fontSize: "100px", color: "#007bff" }} />
+        <CheckCircleFilled style={{ fontSize: "100px", color: "#007AE2;" }} />
         <p className="message">Your fund transfer to Affinity is successful</p>
         <button className="next" onClick={onReturn}>
           RETURN

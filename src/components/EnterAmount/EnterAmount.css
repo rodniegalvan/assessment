@@ -45,7 +45,8 @@
   color: rgb(60, 60, 60);
 }
 hr {
-  margin: 0.5em 0;
+  margin: 0;
+  margin-bottom: 0.5em;
 }
 .form-container input[type="radio"] {
   margin-left: 5px;
@@ -66,5 +67,8 @@ input.error {
   }
   .input-amount {
     max-width: 250px;
+  }
+  .account-details-wrapper {
+  max-width: 25em;
   }
 }
