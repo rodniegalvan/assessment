@@ -1,14 +1,15 @@
 body {
-  font-family: -apple-system, BlinkMacSystemFont, "Poppins", "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Poppins", "Segoe UI",
+    "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans",
+    "Helvetica Neue", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-#root{
+#root {
   height: 100%;
 }
-body, html {
+body,
+html {
   margin: 0;
   padding: 0;
   height: 100%;
@@ -29,7 +30,9 @@ h2 {
 p {
   font-size: 14px;
 }
-
+.small-font{
+  font-size: 12px;
+}
 a {
   font-size: 12px;
   text-decoration: none;
@@ -80,13 +83,20 @@ button {
 }
 
 @media (max-width: 768px) {
-  .logo-wrapper {
-    position: absolute;
-    bottom: 40px;
-    justify-content: space-evenly;
-  }
   .logo-wrapper img {
     width: 80px;
     height: auto;
+  }
+  .form-container {
+    max-width: 300px;
+    text-align: center;
+  }
+  .next,
+  .prev {
+    padding: 10px 20px;
+  }.logo-wrapper {
+  width: 100%;
+  justify-content: center;
+  gap: 20px;
   }
 }

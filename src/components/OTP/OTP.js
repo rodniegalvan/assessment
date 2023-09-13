@@ -52,7 +52,7 @@ function OTP({ onCancel, onNext, phoneNumber, onResendOTP }) {
         {otpError && (
           <p className="error-message">Incorrect OTP. Please try again.</p>
         )}
-        <p>
+        <p className="small-font">
           Didn't receive the code?{" "}
           <a href="http://localhost:3000/" onClick={onResendOTP}>
             Resend

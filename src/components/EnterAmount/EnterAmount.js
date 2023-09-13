@@ -81,7 +81,7 @@ function EnterAmount({
             </div>
           ))}
         </div>
-        <button onClick={handleNext}>Next</button>
+        <button className="next" onClick={handleNext}>Next</button>
         <div className="logo-wrapper">
           <img src="/images/affinity.png" alt="Affinity Logo" width="100" />
         </div>
