@@ -65,4 +65,7 @@ input.error {
   .account-number-wrapper {
   text-align: start;
   }
+  .input-amount {
+    max-width: 300px;
+  }
 }
