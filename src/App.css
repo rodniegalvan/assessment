@@ -4,14 +4,16 @@
   justify-content: center;
   height: 100%;
   width: 100%;
+  box-sizing: border-box;
+  padding: 50px 90px;
 }
 .components-container{
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  width: calc(100% - 180px);
-  height: calc(100% - 100px);
+  height: 100%;
+  width: 100%;
   box-shadow: 0 0 5px rgba(85, 85, 85, 0.2);
   border-radius: 10px; 
 }
@@ -51,9 +53,10 @@
 }
 
 @media (max-width: 768px) {
+.App{
+  padding: 0;
+}
   .components-container {
     box-shadow: none;
-    width: 100%;
-    height: 100%;
   }
 }
