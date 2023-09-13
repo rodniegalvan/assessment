@@ -1,7 +1,5 @@
 body {
-  font-family: -apple-system, BlinkMacSystemFont, "Poppins", "Segoe UI",
-    "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans",
-    "Helvetica Neue", sans-serif;
+  font-family: 'Poppins', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -15,10 +13,6 @@ html {
   height: 100%;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
-}
 h2 {
   font-size: 20px;
   margin: 20px 0;

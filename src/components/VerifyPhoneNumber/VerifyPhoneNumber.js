@@ -3,7 +3,7 @@ import { MobileOutlined } from "@ant-design/icons";
 import "./VerifyPhoneNumber.css";
 
 function VerifyPhoneNumber({ onProceed, onCancel, onNotYourPhoneNumber }) {
-  const phoneNumber = "+639517042047";
+  const phoneNumber = "+63951***2047";
 
   const handleProceedClick = () => {
     onProceed(phoneNumber);
