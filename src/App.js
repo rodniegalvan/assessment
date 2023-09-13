@@ -27,22 +27,24 @@ function App() {
   };
   return (
     <div className="App">
-      {step === 1 && <EnterAmount onNext={handleNext} />}
-      {step === 2 && (
-        <VerifyPhoneNumber
-          onProceed={handleNext}
-          onCancel={handleReturn}
-          onNotYourPhoneNumber={handleReturn}
-        />
-      )}
-      {step === 3 && (
-        <OTP
-          onNext={handleNext}
-          onCancel={handleReturn}
-          phoneNumber={phoneNumber}
-        />
-      )}
-      {step === 4 && <Confirmation onReturn={handleReturn} />}
+      <div className="components-container">
+        {step === 1 && <EnterAmount onNext={handleNext} />}
+        {step === 2 && (
+          <VerifyPhoneNumber
+            onProceed={handleNext}
+            onCancel={handleReturn}
+            onNotYourPhoneNumber={handleReturn}
+          />
+        )}
+        {step === 3 && (
+          <OTP
+            onNext={handleNext}
+            onCancel={handleReturn}
+            phoneNumber={phoneNumber}
+          />
+        )}
+        {step === 4 && <Confirmation onReturn={handleReturn} />}
+      </div>
     </div>
   );
 }

@@ -2,11 +2,21 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin: 0 auto;
+  max-width: 500px;
+  height: 100%;
+  width: 100%;
+  justify-content: center;
 }
-
-.enter-amount-container h2 {
-  font-size: 20px;
-  margin-bottom: 20px;
+.enter-amount-wrapper img{
+  margin: 10px 0;
+}
+.input-amount{
+  max-width: 410px;
+}
+.form-container h2 {
+  font-size: 18px;
+  font-weight: 500;
 }
 
 .account-details-wrapper {
@@ -18,7 +28,10 @@
   width: 100%;
   justify-content: space-between;
 }
-
+.choose-debit{
+  width: 100%;
+  margin: 32px 0;
+}
 .account-number-wrapper {
   display: flex;
   flex-direction: column;
@@ -37,11 +50,11 @@ hr{
   margin: 0;
 }
 
-.enter-amount-container input[type="radio"] {
+.form-container input[type="radio"] {
   margin-left: 5px;
 }
 
-.enter-amount-container button {
+.form-container button {
   margin-top: 20px;
   padding: 10px 50px;
   background-color: #007bff;

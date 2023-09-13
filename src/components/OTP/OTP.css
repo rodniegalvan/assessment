@@ -7,6 +7,16 @@
     justify-content: center;
     border-radius: 50%;
   }
+  .otp-wrapper{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 auto;
+    max-width: 500px;
+    height: 100%;
+    width: 100%;
+    justify-content: center;
+  }
 .otp-input-container {
     display: flex;
     justify-content: center;
