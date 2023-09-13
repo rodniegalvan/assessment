@@ -27,7 +27,6 @@ function App() {
   };
   return (
     <div className="App">
-      <div className="components-container">
         {step === 1 && <EnterAmount onNext={handleNext} />}
         {step === 2 && (
           <VerifyPhoneNumber
@@ -45,7 +44,7 @@ function App() {
         )}
         {step === 4 && <Confirmation onReturn={handleReturn} />}
       </div>
-    </div>
+
   );
 }
 

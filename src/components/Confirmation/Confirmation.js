@@ -9,7 +9,7 @@ function Confirmation({ onReturn }) {
         <CheckCircleFilled style={{ fontSize: "100px", color: "#007bff" }} />
         <p className="message">Your fund transfer to Affinity is successful</p>
         <button className="next" onClick={onReturn}>
-          Return
+          RETURN
         </button>
         <div className="logo-wrapper">
           <img src="/images/bpi.png" alt="BPI Logo" width="100" />

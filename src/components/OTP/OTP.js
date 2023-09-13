@@ -60,10 +60,10 @@ function OTP({ onCancel, onNext, phoneNumber, onResendOTP }) {
         </p>
         <div className="button-wrapper">
           <button className="prev" onClick={onCancel}>
-            Cancel
+            CANCEL
           </button>
           <button className="next" onClick={handleOtpSubmit}>
-            Submit
+            SUBMIT
           </button>
         </div>
         <div className="logo-wrapper">

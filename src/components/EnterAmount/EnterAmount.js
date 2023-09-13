@@ -1,10 +1,8 @@
-import React, { useState} from "react";
+import React, { useState } from "react";
 import { Input } from "antd";
 import "./EnterAmount.css";
 
-function EnterAmount({
-  onNext,
-}) {
+function EnterAmount({ onNext }) {
   const savingsAccounts = [
     { value: "savings1", accountNumber: "1234", label: "Savings Account" },
     { value: "savings2", accountNumber: "5678", label: "Savings Account" },
@@ -26,7 +24,8 @@ function EnterAmount({
     setAccountSelected(true);
   };
 
-  const handleNext = () => {
+  const handleSubmit = (e) => {
+    e.preventDefault();
     if (amount.trim() === "") {
       setAmountEmpty(true);
     } else if (!accountSelected) {
@@ -36,14 +35,15 @@ function EnterAmount({
       onNext();
     }
   };
+
   return (
-    <div className="form-container">
+    <form className="form-container" onSubmit={handleSubmit}>
       <div className="enter-amount-wrapper">
         <img src="/images/bpi.png" alt="BPI Logo" width="100" />
         <h2>Enter Amount</h2>
 
         <Input
-        className="input-amount"
+          className="input-amount"
           prefix={<p>PHP&nbsp;&nbsp;&nbsp;</p>}
           value={amount}
           onChange={handleAmountChange}
@@ -81,12 +81,12 @@ function EnterAmount({
             </div>
           ))}
         </div>
-        <button className="next" onClick={handleNext}>Next</button>
+        <button className="next" type="submit">NEXT</button>
         <div className="logo-wrapper">
           <img src="/images/affinity.png" alt="Affinity Logo" width="100" />
         </div>
       </div>
-    </div>
+    </form>
   );
 }
 

@@ -5,17 +5,6 @@
   height: 100%;
   width: 100%;
   box-sizing: border-box;
-  padding: 50px 90px;
-}
-.components-container{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  height: 100%;
-  width: 100%;
-  box-shadow: 0 0 5px rgba(85, 85, 85, 0.2);
-  border-radius: 10px; 
 }
 .App-logo {
   height: 40vmin;
@@ -51,12 +40,4 @@
     transform: rotate(360deg);
   }
 }
-
-@media (max-width: 768px) {
-.App{
-  padding: 0;
-}
-  .components-container {
-    box-shadow: none;
-  }
-}
+  

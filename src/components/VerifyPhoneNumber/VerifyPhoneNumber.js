@@ -25,10 +25,10 @@ function VerifyPhoneNumber({ onProceed, onCancel, onNotYourPhoneNumber }) {
         </a>
         <div className="button-wrapper">
           <button className="prev" onClick={onCancel}>
-            Cancel
+            CANCEL
           </button>
           <button className="next" onClick={handleProceedClick}>
-            Proceed
+            PROCEED
           </button>
         </div>
         <div className="logo-wrapper">
