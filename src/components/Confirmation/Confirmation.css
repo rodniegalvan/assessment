@@ -20,22 +20,25 @@
   margin-bottom: 1.25em;
   width: 8em;
   height: 8em;
-  border: 1px solid rgba(0, 0, 0, 0.2);
+  border: 2px solid rgba(0, 0, 0, 0.2);
   border-top-color: blue;
   border-radius: 50%;
   animation: loader-spin 1.2s infinite linear;
   position: relative;
+
 }
 
 .load-complete {
   animation: none;
   border-color: blue;
-  transition: border 500ms ease-out;
+  background-color: blue;
+  transition: all 500ms ease-in-out;
 }
 
 .checkmark {
   display: block;
   position: relative;
+  color: white;
 }
 
 .checkmark.draw:after {
@@ -50,8 +53,8 @@
   height: 4em;
   width: 2em;
   transform-origin: left top;
-  border-right: 5px solid blue;
-  border-top: 5px solid blue;
+  border-right: 8px solid white;
+  border-top: 8px solid white;
   content: '';
   left: 2em;
   top: 4em;
