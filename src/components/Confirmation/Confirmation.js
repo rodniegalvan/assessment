@@ -1,13 +1,35 @@
-import React from "react";
-import { CheckCircleFilled } from "@ant-design/icons";
+import React, { useState, useEffect } from "react";
 import "./Confirmation.css";
 
-function Confirmation({ onReturn }) {
+function Confirmation({ onReturn, isSuccess }) {
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    // Simulate loading for a few seconds and then show the result
+    const loadingTimer = setTimeout(() => {
+      setIsLoading(false);
+    }, 3000); // Adjust the duration as needed
+
+    return () => clearTimeout(loadingTimer);
+  }, []);
+
   return (
     <div className="form-container">
       <div className="confirmation-wrapper">
-        <CheckCircleFilled style={{ fontSize: "100px", color: "#007ae2" }} />
-        <p className="message">Your fund transfer to Affinity is successful</p>
+        {isLoading ? (
+          <div className="circle-loader"></div>
+        ) : (
+          <div className={`circle-loader ${isSuccess ? "load-complete" : ""}`}>
+            <div className={`${isSuccess ? "checkmark draw" : ""}`}></div>
+          </div>
+        )}
+        <p className="message">
+          {isLoading
+            ? "Processing your request..."
+            : isSuccess
+            ? "Your fund transfer to Affinity is successful"
+            : "Fund transfer failed"}
+        </p>
         <button className="next" onClick={onReturn}>
           RETURN
         </button>

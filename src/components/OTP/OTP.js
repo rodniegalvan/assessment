@@ -9,7 +9,7 @@ function OTP({ onCancel, onNext, phoneNumber, onResendOTP }) {
 
   const handleOtpSubmit = () => {
     const enteredOtp = otp.join("");
-    if (enteredOtp === "123456") {
+    if (enteredOtp.length === 6) {
       setOtpError(false);
       onNext();
     } else {

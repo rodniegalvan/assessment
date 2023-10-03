@@ -1,11 +1,12 @@
 import React, { useState } from "react";
 import { Input } from "antd";
+import {maskCardNumber} from '../../utils/maskCardNumber';
 import "./EnterAmount.css";
 
 function EnterAmount({ onNext }) {
   const savingsAccounts = [
-    { value: "savings1", accountNumber: "1234", label: "Savings Account" },
-    { value: "savings2", accountNumber: "5678", label: "Savings Account" },
+    { value: "savings1", accountNumber: "1234 1234 1234 1234", label: "Savings Account" },
+    { value: "savings2", accountNumber: "5678 5678 5678 5678", label: "Savings Account" },
   ];
 
   const [selectedAccount, setSelectedAccount] = useState("");
@@ -63,8 +64,7 @@ function EnterAmount({ onNext }) {
               <label>
                 <div className="account-number-wrapper">
                   <div className="account-number">
-                    {" "}
-                    {`******${account.accountNumber}`}
+                    {maskCardNumber(account.accountNumber)}
                   </div>
                   <div className="account-label">{account.label}</div>
                 </div>
