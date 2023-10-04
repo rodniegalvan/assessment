@@ -52,6 +52,7 @@ function EnterAmount({ onNext }) {
             onChange={handleAmountChange}
             style={{
               width: "100%",
+              height: "40px",
               borderColor: amountEmpty ? "red" : "",
             }}
           />
