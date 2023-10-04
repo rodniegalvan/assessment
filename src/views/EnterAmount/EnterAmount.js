@@ -10,20 +10,10 @@ import Button from "../../components/buttons/Button";
 //functions
 import { maskCardNumber } from "../../utils/maskCardNumber";
 
-function EnterAmount({ onNext }) {
-  const savingsAccounts = [
-    {
-      value: "savings1",
-      accountNumber: "1234 1234 1234 1234",
-      label: "Savings Account",
-    },
-    {
-      value: "savings2",
-      accountNumber: "5678 5678 5678 5678",
-      label: "Savings Account",
-    },
-  ];
+//constants
+import { users } from "../../constants/Users";
 
+function EnterAmount({ onNext }) {
   const [selectedAccount, setSelectedAccount] = useState("");
   const [amount, setAmount] = useState("");
   const [accountSelected, setAccountSelected] = useState(false);
@@ -72,22 +62,23 @@ function EnterAmount({ onNext }) {
 
       <div className="account-details-wrapper">
         <p className="choose-debit">Choose which BPI account to debit from:</p>
-        {savingsAccounts.map((account, index) => (
-          <div key={account.value} className="account-details">
+        {/* Use the bankAccounts from const users */}
+        {users[0].bankAccounts.map((account, index) => (
+          <div key={account.id} className="account-details">
             <label>
               <div className="account-number-wrapper">
                 <div className="account-number">
-                  {maskCardNumber(account.accountNumber)}
+                  {maskCardNumber(account.cardNumber)}
                 </div>
-                <div className="account-label">{account.label}</div>
+                <div className="account-label">{account.type}</div>
               </div>
               <input
                 type="radio"
-                id={account.value}
+                id={account.id}
                 name="selectedAccount"
-                value={account.value}
-                checked={selectedAccount === account.value}
-                onChange={() => handleAccountSelection(account.value)}
+                value={account.id}
+                checked={selectedAccount === account.id}
+                onChange={() => handleAccountSelection(account.id)}
               />
             </label>
             <hr />
