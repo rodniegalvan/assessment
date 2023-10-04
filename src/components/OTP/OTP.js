@@ -35,8 +35,8 @@ function OTP({ onCancel, onNext, phoneNumber, onResendOTP }) {
         <div className="icon-wrapper">
         <img src='/icons/otp.svg' alt="OTP Icon" />  
         </div>
-        <h2>One Time Pin</h2>
-        <p>Enter the 6-digit code from the SMS we sent to</p>
+        <p className="text-large">One Time Pin</p>
+        <p className="text-medium">Enter the 6-digit code from the SMS we sent to</p>
         <p className="number">{phoneNumber}</p>
         <div className="otp-input-container">
           {Array.from({ length: 6 }, (_, index) => (

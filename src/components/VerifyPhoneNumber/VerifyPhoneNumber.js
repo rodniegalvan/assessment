@@ -16,10 +16,10 @@ function VerifyPhoneNumber({ onProceed, onCancel, onNotYourPhoneNumber }) {
         <div className="icon-wrapper">
           <img src='/icons/mobile.svg' alt="Mobile Icon" />  
         </div>
-        <h2>Verify Phone Number</h2>
-        <p>To proceed, a 6-digit code will be sent via SMS</p>
+        <p className='text-large'>Verify Phone Number</p>
+        <p className='text-medium'>To proceed, a 6-digit code will be sent via SMS</p>
         <div className='number-wrapper'>        
-          <p>Is this your phone number?</p>
+          <p className='text-medium'>Is this your phone number?</p>
           <p className="number">{phoneNumber}</p>
           <a className="text-small" href="http://localhost:3000/" onClick={onNotYourPhoneNumber}>
             Not your phone number?

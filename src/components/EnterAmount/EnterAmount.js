@@ -52,15 +52,10 @@ function EnterAmount({ onNext }) {
             onChange={handleAmountChange}
             style={{
               width: "100%",
-              height: "40px",
               borderColor: amountEmpty ? "red" : "",
             }}
           />
         </div>
-
-        {amountEmpty && (
-          <p className="error-message">Amount cannot be empty.</p>
-        )}
 
         <div className="account-details-wrapper">
         <p className="choose-debit">Choose which BPI account to debit from:</p>
@@ -82,11 +77,11 @@ function EnterAmount({ onNext }) {
                   onChange={() => handleAccountSelection(account.value)}
                 />
               </label>
-              <hr />
+              <hr/>
             </div>
           ))}
         </div>
-        <Button label="NEXT" onClick={handleSubmit} className="next" />
+        <Button label="NEXT" onClick={handleSubmit} className="next-first" />
         <div className="logo-wrapper">
           <img className="affinity" src="/images/affinity.png" alt="Affinity Logo"/>
         </div>
