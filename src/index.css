@@ -19,6 +19,10 @@ p {
   font-size: 14px;
   margin: 10px 0;
 }
+.text-sm{
+  margin-top: 20px;
+  margin-bottom: 0;
+}
 .small-font {
   font-size: 12px;
 }
@@ -54,13 +58,13 @@ button {
   display: flex;
   justify-content: space-evenly;
   width: 100%;
-  margin-top: 20px;
 }
 .logo-wrapper {
   margin-top: 20px;
   display: flex;
   justify-content: space-around;
   align-items: center;
+  gap: 20px;
   width: 50%;
 }
 .form-container {
@@ -102,7 +106,6 @@ button {
   .logo-wrapper {
     width: 100%;
     justify-content: center;
-    gap: 20px;
   }
   .button-wrapper{
     display: flex;
