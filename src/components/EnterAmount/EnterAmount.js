@@ -3,6 +3,8 @@ import { Input } from "antd";
 import {maskCardNumber} from '../../utils/maskCardNumber';
 import "./EnterAmount.css";
 
+import Button from "../buttons/Button";
+
 function EnterAmount({ onNext }) {
   const savingsAccounts = [
     { value: "savings1", accountNumber: "1234 1234 1234 1234", label: "Savings Account" },
@@ -40,25 +42,28 @@ function EnterAmount({ onNext }) {
   return (
     <form className="form-container" onSubmit={handleSubmit}>
       <div className="enter-amount-wrapper">
-        <img src="/images/bpi.png" alt="BPI Logo" width="100" />
+        <img src="/images/bpi.png" alt="BPI Logo" width="150" />
+        <div className="input-wrapper">        
         <h2 className="enter-h2">Enter Amount</h2>
+          <Input
+            className="input-amount"
+            prefix={<p>PHP&nbsp;&nbsp;&nbsp;</p>}
+            value={amount}
+            onChange={handleAmountChange}
+            style={{
+              width: "100%",
+              height: "40px",
+              borderColor: amountEmpty ? "red" : "",
+            }}
+          />
+        </div>
 
-        <Input
-          className="input-amount"
-          prefix={<p>PHP&nbsp;&nbsp;&nbsp;</p>}
-          value={amount}
-          onChange={handleAmountChange}
-          style={{
-            width: "100%",
-            height: "40px",
-            borderColor: amountEmpty ? "red" : "",
-          }}
-        />
         {amountEmpty && (
           <p className="error-message">Amount cannot be empty.</p>
         )}
-        <p className="choose-debit">Choose which BPI account to debit from:</p>
+
         <div className="account-details-wrapper">
+        <p className="choose-debit">Choose which BPI account to debit from:</p>
           {savingsAccounts.map((account, index) => (
             <div key={account.value} className="account-details">
               <label>
@@ -81,9 +86,9 @@ function EnterAmount({ onNext }) {
             </div>
           ))}
         </div>
-        <button className="next" type="submit">NEXT</button>
+        <Button label="NEXT" onClick={handleSubmit} className="next" />
         <div className="logo-wrapper">
-          <img src="/images/affinity.png" alt="Affinity Logo" width="100" />
+          <img className="affinity" src="/images/affinity.png" alt="Affinity Logo"/>
         </div>
       </div>
     </form>

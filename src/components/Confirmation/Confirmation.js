@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./Confirmation.css";
+import LogoWrapper from '../layout/logo-wrapper/LogoWrapper';
+import Button from "../buttons/Button";
 
 function Confirmation({ onReturn, isSuccess }) {
   const [isLoading, setIsLoading] = useState(true);
@@ -8,7 +10,7 @@ function Confirmation({ onReturn, isSuccess }) {
     // Simulate loading for a few seconds and then show the result
     const loadingTimer = setTimeout(() => {
       setIsLoading(false);
-    }, 3000); // Adjust the duration as needed
+    }, 1000); // Adjust the duration as needed
 
     return () => clearTimeout(loadingTimer);
   }, []);
@@ -30,13 +32,8 @@ function Confirmation({ onReturn, isSuccess }) {
             ? "Your fund transfer to Affinity is successful"
             : "Fund transfer failed"}
         </p>
-        <button className="next" onClick={onReturn}>
-          RETURN
-        </button>
-        <div className="logo-wrapper">
-          <img src="/images/bpi.png" alt="BPI Logo" width="100" />
-          <img src="/images/affinity.png" alt="Affinity Logo" width="100" />
-        </div>
+        <Button label="RETURN" onClick={onReturn} className="return" />
+        <LogoWrapper />
       </div>
     </div>
   );

@@ -1,0 +1,16 @@
+.logo-wrapper {
+    margin-top: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    width: 100%;
+  }
+.bpi{
+    width: 60px;
+    margin: 0; 
+}
+.affinity{
+    width: 88px;
+    margin: 0;
+}

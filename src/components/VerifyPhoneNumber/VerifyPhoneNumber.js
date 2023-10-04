@@ -1,6 +1,7 @@
-import React from "react";
-import { MobileOutlined } from "@ant-design/icons";
+import React from 'react';
+import LogoWrapper from '../layout/logo-wrapper/LogoWrapper';
 import "./VerifyPhoneNumber.css";
+import Button from '../buttons/Button';
 
 function VerifyPhoneNumber({ onProceed, onCancel, onNotYourPhoneNumber }) {
   const phoneNumber = "+63951***2047";
@@ -13,27 +14,23 @@ function VerifyPhoneNumber({ onProceed, onCancel, onNotYourPhoneNumber }) {
     <div className="form-container">
       <div className="verify-wrapper">
         <div className="icon-wrapper">
-          <MobileOutlined style={{ fontSize: "50px", color: "white" }} />
+          <img src='/icons/mobile.svg' alt="Mobile Icon" />  
         </div>
         <h2>Verify Phone Number</h2>
         <p>To proceed, a 6-digit code will be sent via SMS</p>
-        <p className="text-sm">Is this your phone number?</p>
-        <p className="number">{phoneNumber}</p>
-        <a href="http://localhost:3000/" onClick={onNotYourPhoneNumber}>
-          Not your phone number?
-        </a>
+        <div className='number-wrapper'>        
+          <p>Is this your phone number?</p>
+          <p className="number">{phoneNumber}</p>
+          <a className="text-small" href="http://localhost:3000/" onClick={onNotYourPhoneNumber}>
+            Not your phone number?
+          </a>
+        </div>
+
         <div className="button-wrapper">
-          <button className="prev" onClick={onCancel}>
-            CANCEL
-          </button>
-          <button className="next" onClick={handleProceedClick}>
-            PROCEED
-          </button>
+          <Button label="CANCEL" onClick={onCancel} className="prev" />
+          <Button label="PROCEED" onClick={handleProceedClick} className="next" />
         </div>
-        <div className="logo-wrapper">
-          <img src="/images/bpi.png" alt="BPI Logo" width="100" />
-          <img src="/images/affinity.png" alt="Affinity Logo" width="100" />
-        </div>
+        <LogoWrapper />
       </div>
     </div>
   );

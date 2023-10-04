@@ -2,12 +2,12 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin: 0 auto;
-    text-align: center;
     max-width: 500px;
     height: 100%;
     width: 100%;
-    justify-content: center;
+    justify-content: space-between;
+    box-sizing: border-box;
+    padding: 2em 2em 1em 2em;
   }
   .icon-wrapper {
     width: 100px;
@@ -19,3 +19,6 @@
     border-radius: 50%;
     margin-bottom: 1em;
   }
+.number-wrapper{
+  text-align: center;
+}

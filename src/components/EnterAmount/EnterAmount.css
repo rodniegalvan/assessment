@@ -2,23 +2,26 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  max-width: 500px;
+  box-sizing: border-box;
+  padding: 2em 5em 1em 5em;
   height: 100%;
   width: 100%;
-  justify-content: center;
+  justify-content: space-between;
 }
-.enter-amount-wrapper img{
-  margin-bottom: 1em;
-}
-.input-amount {
-  max-width: 410px;
-}
+
 .form-container h2 {
   font-size: 18px;
   font-weight: 500;
 }
+.input-wrapper{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
 .enter-h2{
-  font-size: 16px !important;
+  font-size: 18px !important;
 }
 
 .account-details-wrapper {
@@ -37,6 +40,8 @@
   margin: 0;
   margin-top:2.5em;
   margin-bottom: 1em;
+  font-size: 14px;
+  line-height: 21px;
 }
 .account-number-wrapper {
   display: flex;
@@ -69,14 +74,15 @@ hr {
 input.error {
   border-color: red;
 }
-@media (max-width: 768px) {
+@media (max-width: 640px) {
+  .enter-amount-wrapper {
+    padding: 0.5em;
+  }
   .account-number-wrapper {
   text-align: start;
   }
-  .input-amount {
-    max-width: 250px;
-  }
-  .account-details-wrapper {
-  max-width: 25em;
+  .choose-debit {
+    line-height: 21px;
+    font-size: 12px;
   }
 }

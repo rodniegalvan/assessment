@@ -8,65 +8,33 @@ html, body, #root {
   margin: 0;
 }
 
-h2 {
-  font-size: 20px;
-}
 .number {
-  font-size: 16px;
-  font-weight: 600;
+  font-size: 18px;
+  font-weight: 500;
 }
 p {
-  font-size: 14px;
+  font-size: 16px;
+  font-weight: 400;
   margin: 10px 0;
-}
-.text-sm{
-  margin-top: 20px;
-  margin-bottom: 0;
 }
 .small-font {
   font-size: 12px;
 }
 a {
-  font-size: 12px;
   text-decoration: none;
   color: #007AE2;;
 }
-button {
-  font-size: 12px;
-  margin-top: 10px;
-  font-weight: 600;
-}
-.next {
-  margin-top: 20px;
-  padding: 10px 30px;
-  background-color: #007AE2;;
-  color: #fff;
-  border: none;
-  border-radius: 0.25em;
-  cursor: pointer;
-}
-.prev {
-  margin-top: 20px;
-  padding: 10px 30px;
-  background-color: #fff;
-  color: #007AE2;;
-  border: solid 1px #007AE2;;
-  border-radius: 0.25em;
-  cursor: pointer;
-}
+
 .button-wrapper {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-between;
   width: 100%;
 }
-.logo-wrapper {
-  margin-top: 20px;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  gap: 20px;
-  width: 50%;
+.text-large{
+  font-size: 18px;
+  font-weight: 500;
 }
+
 .form-container {
   display: flex;
   margin: auto;
@@ -74,49 +42,37 @@ button {
   align-items: center;
   justify-content: center;
   width: 100%;
-  max-width: 30em;
+  height: 100%;
+  max-width: 38em;
+  max-height: 40em;
   box-sizing: border-box;
-  padding: 2em 4em;
+  padding: 2em 2em;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
   border-radius: 0.5em;
 }
-.next:hover {
-  background-color: #187BCD; 
-}
 
-
-.prev:hover {
-  background-color: #f0f0f0; 
-}
-
-@media (max-width: 768px) {
-  .logo-wrapper img {
-    width: 80px;
-    height: auto;
-  }
+@media (max-width: 640px) {
   .form-container {
     text-align: center;
     box-shadow: none;
     padding: 2em;
   }
-  .next,
-  .prev {
-    padding: 10px 20px;
-  }
-  .logo-wrapper {
-    width: 100%;
-    justify-content: center;
-  }
   .button-wrapper{
-    display: flex;
-    flex-direction: column-reverse;
-    align-items: center;
     gap: 0.5em;
   }
   .prev{
     margin: 0;
     border: none;
     color: black;
+  }
+  p{
+    font-size: 14px;
+  }
+  .text-large{
+    font-size: 14px;
+  }
+  .text-small{
+    font-size: 12px;
   }
 }
 
@@ -127,4 +83,8 @@ button {
   :where(.css-dev-only-do-not-override-18iikkb).ant-input-affix-wrapper:not(.ant-input-affix-wrapper-disabled):hover {
     border-color: #d9d9d9 !important;
     z-index: 1;
+    }
+
+    :where(.css-dev-only-do-not-override-18iikkb).ant-input {
+      font-family: 'Poppins';
     }

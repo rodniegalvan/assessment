@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import "./OTP.css";
-import { BsFillShieldLockFill } from "react-icons/bs";
+import Button from "../buttons/Button";
+
+import LogoWrapper from '../layout/logo-wrapper/LogoWrapper';
 
 function OTP({ onCancel, onNext, phoneNumber, onResendOTP }) {
   const [otpError, setOtpError] = useState(false);
@@ -31,10 +33,10 @@ function OTP({ onCancel, onNext, phoneNumber, onResendOTP }) {
     <div className="form-container">
       <div className="otp-wrapper">
         <div className="icon-wrapper">
-          <BsFillShieldLockFill className="otp-icon" />
+        <img src='/icons/otp.svg' alt="OTP Icon" />  
         </div>
         <h2>One Time Pin</h2>
-        <p className="text-sm">Enter the 6-digit code from the SMS we sent to</p>
+        <p>Enter the 6-digit code from the SMS we sent to</p>
         <p className="number">{phoneNumber}</p>
         <div className="otp-input-container">
           {Array.from({ length: 6 }, (_, index) => (
@@ -52,24 +54,17 @@ function OTP({ onCancel, onNext, phoneNumber, onResendOTP }) {
         {otpError && (
           <p className="error-message">Incorrect OTP. Please try again.</p>
         )}
-        <p className="small-font">
+        <p className="text-small">
           Didn't receive the code?{" "}
-          <a href="http://localhost:3000/" onClick={onResendOTP}>
+          <a className="text-small" href="http://localhost:3000/" onClick={onResendOTP}>
             Resend
           </a>
         </p>
         <div className="button-wrapper">
-          <button className="prev" onClick={onCancel}>
-            CANCEL
-          </button>
-          <button className="next" onClick={handleOtpSubmit}>
-            SUBMIT
-          </button>
+          <Button label="CANCEL" onClick={onCancel} className="prev" />
+          <Button label="PROCEED" onClick={handleOtpSubmit} className="next" />
         </div>
-        <div className="logo-wrapper">
-          <img src="/images/bpi.png" alt="BPI Logo" width="100" />
-          <img src="/images/affinity.png" alt="Affinity Logo" width="100" />
-        </div>
+          <LogoWrapper />
       </div>
     </div>
   );
