@@ -119,3 +119,12 @@ button {
     color: black;
   }
 }
+
+:where(.css-dev-only-do-not-override-18iikkb).ant-input-affix-wrapper:focus, :where(.css-dev-only-do-not-override-18iikkb).ant-input-affix-wrapper-focused {
+  border-color: #d9d9d9 !important;
+  box-shadow: none;
+  }
+  :where(.css-dev-only-do-not-override-18iikkb).ant-input-affix-wrapper:not(.ant-input-affix-wrapper-disabled):hover {
+    border-color: #d9d9d9 !important;
+    z-index: 1;
+    }

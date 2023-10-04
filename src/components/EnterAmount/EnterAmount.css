@@ -7,7 +7,9 @@
   width: 100%;
   justify-content: center;
 }
-
+.enter-amount-wrapper img{
+  margin-bottom: 1em;
+}
 .input-amount {
   max-width: 410px;
 }
