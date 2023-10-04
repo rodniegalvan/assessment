@@ -12,13 +12,12 @@ function VerifyPhoneNumber({ onProceed, onCancel, onNotYourPhoneNumber }) {
   return (
     <div className="form-container">
       <div className="verify-wrapper">
-        {" "}
         <div className="icon-wrapper">
           <MobileOutlined style={{ fontSize: "50px", color: "white" }} />
         </div>
         <h2>Verify Phone Number</h2>
         <p>To proceed, a 6-digit code will be sent via SMS</p>
-        <p>Is this your phone number?</p>
+        <p className="text-sm">Is this your phone number?</p>
         <p className="number">{phoneNumber}</p>
         <a href="http://localhost:3000/" onClick={onNotYourPhoneNumber}>
           Not your phone number?

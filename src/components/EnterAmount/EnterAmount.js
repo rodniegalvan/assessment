@@ -41,7 +41,7 @@ function EnterAmount({ onNext }) {
     <form className="form-container" onSubmit={handleSubmit}>
       <div className="enter-amount-wrapper">
         <img src="/images/bpi.png" alt="BPI Logo" width="100" />
-        <h2>Enter Amount</h2>
+        <h2 className="enter-h2">Enter Amount</h2>
 
         <Input
           className="input-amount"
