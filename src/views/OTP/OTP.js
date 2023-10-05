@@ -38,7 +38,7 @@ function OTP({ onCancel, onNext, phoneNumber, onResendOTP }) {
           <input
             key={index}
             id={`otp-input-${index}`}
-            type="text"
+            type="numbers"
             maxLength="1"
             value={otp[index] || ""}
             onChange={(e) => handleOtpInputChange(e, index, otp, setOtp)}

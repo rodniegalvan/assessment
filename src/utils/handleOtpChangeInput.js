@@ -4,11 +4,7 @@ export function handleOtpInputChange(e, index, otp, setOtp) {
   newOtp[index] = numericValue;
   setOtp(newOtp);
 
-  if (
-    index > 0 &&
-    numericValue === "" &&
-    e.nativeEvent.inputType === "deleteContentBackward"
-  ) {
+  if (index > 0 && e.nativeEvent.inputType === "deleteContentBackward") {
     // Move focus to the previous input field when backspace is pressed and the field is empty
     document.getElementById(`otp-input-${index - 1}`).focus();
 
