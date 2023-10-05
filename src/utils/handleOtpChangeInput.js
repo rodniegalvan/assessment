@@ -11,6 +11,10 @@ export function handleOtpInputChange(e, index, otp, setOtp) {
   ) {
     // Move focus to the previous input field when backspace is pressed and the field is empty
     document.getElementById(`otp-input-${index - 1}`).focus();
+
+    // Set the cursor position to the end of the previous input field
+    const prevInput = document.getElementById(`otp-input-${index - 1}`);
+    prevInput.selectionStart = prevInput.selectionEnd = prevInput.value.length;
   }
 
   if (index < 5 && numericValue !== "") {
