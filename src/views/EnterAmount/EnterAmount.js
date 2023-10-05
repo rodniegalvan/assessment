@@ -51,8 +51,7 @@ function EnterAmount({ onNext }) {
           ]}
         >
           <Input
-            inputmode="numeric"
-            pattern="[0-9]*"
+            type="numbers"
             className="input-amount"
             prefix={<p>PHP&nbsp;&nbsp;&nbsp;</p>}
             onChange={handleAmountChange}
