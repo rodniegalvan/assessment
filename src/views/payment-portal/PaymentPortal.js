@@ -31,7 +31,6 @@ function PaymentPortal() {
         setStep(3);
       } else if (step === 3) {
         // Simulate API call or asynchronous operation
-        await new Promise((resolve) => setTimeout(resolve, 1000));
         setIsSuccess(true); // Set to true for success
         setStep(4);
       }

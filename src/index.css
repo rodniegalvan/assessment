@@ -33,6 +33,7 @@ a {
 .text-large{
   font-size: 18px;
   font-weight: 500;
+  margin: 0;
 }
 .text-medium{
   font-size:14px;
