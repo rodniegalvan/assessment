@@ -18,12 +18,12 @@ function EnterAmount({ onNext }) {
   const handleAmountChange = (e) => {
     let formattedAmount = e.target.value.replace(/[^0-9.]/g, "");
     formattedAmount = formattedAmount.replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-    form.setFieldsValue({ amount: formattedAmount }); // Set the formatted amount in the form
+    form.setFieldsValue({ amount: formattedAmount });
   };
 
   const handleAccountSelection = (accountValue) => {
     setSelectedAccount(accountValue);
-    form.setFieldsValue({ selectedAccountGroup: accountValue }); // Set the selected account in the form
+    form.setFieldsValue({ selectedAccountGroup: accountValue });
   };
 
   const handleSubmit = (values) => {
@@ -51,7 +51,7 @@ function EnterAmount({ onNext }) {
           ]}
         >
           <Input
-            type="numbers"
+            inputMode="numeric"
             className="input-amount"
             prefix={<p>PHP&nbsp;&nbsp;&nbsp;</p>}
             onChange={handleAmountChange}
