@@ -13,6 +13,6 @@
   .payment-form {
     text-align: center;
     box-shadow: none;
-    padding: 2em;
+    padding: 2em 0;
   }
 }
