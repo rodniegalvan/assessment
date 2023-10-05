@@ -44,6 +44,9 @@
     font-size: 48px;
     color: #ffffff;
   }
+  .resend{
+    color: #007AE2;
+  }
   @media (max-width: 640px) {
     .otp-input-container input {
     width: 2em;

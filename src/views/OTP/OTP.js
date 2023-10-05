@@ -1,18 +1,37 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./OTP.css";
 
 //components
 import LogoWrapper from "../../components/layout/logo-wrapper/LogoWrapper";
 import Button from "../../components/buttons/Button";
-
+import LinkButton from "../../components/buttons/link-buttons/LinkButton";
 //utils
-import { handleOtpInputChange } from "../../utils/handleOtpChangeInput";
+import {
+  handleOtpInputChange,
+  handleOtpInputKeyDown,
+} from "../../utils/handleOtpChangeInput";
 
 function OTP({ onCancel, onNext, phoneNumber, onResendOTP }) {
   const [otpError, setOtpError] = useState(false);
 
   const [otp, setOtp] = useState(["", "", "", "", "", ""]);
+  const [resendTimeout, setResendTimeout] = useState(0);
 
+  useEffect(() => {
+    let countdown = null;
+
+    if (resendTimeout > 0) {
+      countdown = setInterval(() => {
+        setResendTimeout((prevTimeout) => prevTimeout - 1);
+      }, 1000);
+    }
+
+    return () => {
+      if (countdown !== null) {
+        clearInterval(countdown);
+      }
+    };
+  }, [resendTimeout]);
   const handleOtpSubmit = () => {
     const enteredOtp = otp.join("");
     if (enteredOtp.length === 6) {
@@ -22,7 +41,14 @@ function OTP({ onCancel, onNext, phoneNumber, onResendOTP }) {
       setOtpError(true);
     }
   };
+  const handleResendClick = () => {
+    // Simulate OTP resend logic
+    // You can replace this with your actual logic
+    console.log("Resending OTP...");
 
+    // Set the countdown timer
+    setResendTimeout(10);
+  };
   return (
     <div className="otp-wrapper">
       <div className="icon-wrapper">
@@ -42,6 +68,7 @@ function OTP({ onCancel, onNext, phoneNumber, onResendOTP }) {
             maxLength="1"
             value={otp[index] || ""}
             onChange={(e) => handleOtpInputChange(e, index, otp, setOtp)}
+            onKeyDown={(e) => handleOtpInputKeyDown(e, index, otp)}
           />
         ))}
       </div>
@@ -50,14 +77,17 @@ function OTP({ onCancel, onNext, phoneNumber, onResendOTP }) {
         <p className="error-message">Incorrect OTP. Please try again.</p>
       )}
       <p className="text-small">
-        Didn't receive the code?{" "}
-        <a
-          className="text-small"
-          href="http://localhost:3000/"
-          onClick={onResendOTP}
-        >
-          Resend
-        </a>
+        {resendTimeout === 0 ? (
+          <span>
+            Didn't receive the code?{" "}
+            <LinkButton onClick={handleResendClick} label="Resend" />
+          </span>
+        ) : (
+          <span>
+            <span className="resend">Resend</span> code in {resendTimeout}{" "}
+            seconds
+          </span>
+        )}
       </p>
       <div className="button-wrapper">
         <Button label="CANCEL" onClick={onCancel} className="prev" />
