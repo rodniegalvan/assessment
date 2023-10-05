@@ -5,6 +5,9 @@ import "./OTP.css";
 import LogoWrapper from "../../components/layout/logo-wrapper/LogoWrapper";
 import Button from "../../components/buttons/Button";
 
+//utils
+import { handleOtpInputChange } from "../../utils/handleOtpChangeInput";
+
 function OTP({ onCancel, onNext, phoneNumber, onResendOTP }) {
   const [otpError, setOtpError] = useState(false);
 
@@ -19,16 +22,6 @@ function OTP({ onCancel, onNext, phoneNumber, onResendOTP }) {
       setOtpError(true);
     }
   };
-
-  function handleOtpInputChange(e, index) {
-    const newOtp = [...otp];
-    newOtp[index] = e.target.value;
-    setOtp(newOtp);
-
-    if (index < 5 && e.target.value !== "") {
-      document.getElementById(`otp-input-${index + 1}`).focus();
-    }
-  }
 
   return (
     <div className="otp-wrapper">
@@ -48,7 +41,7 @@ function OTP({ onCancel, onNext, phoneNumber, onResendOTP }) {
             type="text"
             maxLength="1"
             value={otp[index] || ""}
-            onChange={(e) => handleOtpInputChange(e, index)}
+            onChange={(e) => handleOtpInputChange(e, index, otp, setOtp)}
           />
         ))}
       </div>
