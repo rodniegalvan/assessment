@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { InputNumber, Form } from "antd";
+import { Input, Form } from "antd";
 
 import "./EnterAmount.css";
 
@@ -50,7 +50,8 @@ function EnterAmount({ onNext }) {
             },
           ]}
         >
-          <InputNumber
+          <Input
+            type="numbers"
             className="input-amount"
             prefix={<p>PHP&nbsp;&nbsp;&nbsp;</p>}
             onChange={handleAmountChange}
