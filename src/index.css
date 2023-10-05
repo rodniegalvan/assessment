@@ -12,10 +12,15 @@ html, body, #root {
   font-size: 16px;
   font-weight: 500;
 }
+input, textarea, select, label { font-family:inherit; }
 p {
+  font-family: "Poppins", sans-serif;
   font-size: 16px;
   font-weight: 400;
   margin: 10px 0;
+}
+.ant-form-item input, textarea, select, label {
+  font-family: "Poppins", sans-serif;
 }
 .text-small {
   font-size: 12px;
