@@ -26,7 +26,6 @@
   border-radius: 50%;
   animation: loader-spin 1.2s infinite linear;
   position: relative;
-
 }
 
 .load-complete {
@@ -56,7 +55,7 @@
   transform-origin: left top;
   border-right: 1em solid white;
   border-top: 1em solid white;
-  content: '';
+  content: "";
   left: 1.5em;
   top: 4em;
   position: absolute;
@@ -94,7 +93,7 @@
   }
 }
 @media (max-width: 640px) {
-  .message{
+  .message {
     font-weight: 400;
   }
 }

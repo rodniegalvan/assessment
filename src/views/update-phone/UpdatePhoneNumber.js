@@ -1,57 +1,105 @@
 import React from "react";
 import "./UpdatePhoneNumber.css";
-import { Input, Select } from "antd";
+import { Input, Form } from "antd";
+
 //components
 import LogoWrapper from "../../components/layout/logo-wrapper/LogoWrapper";
-import Button from "../../components/buttons/Button";
 import SelectBirthdate from "../../components/selects/selects-birthdate/SelectBirthdate";
 import IconWithHeader from "../../components/icons/icons-header/IconsHeader";
+import Button from "../../components/buttons/Button";
 
-//constants
-function UpdatePhoneNumber({ onConfirm, onCancel }) {
-  const phoneNumber = "+63951***2047";
-  const handleProceedClick = () => {
-    onConfirm(phoneNumber);
+function UpdatePhoneNumber({
+  onConfirm,
+  onCancel,
+  phoneNumber,
+  selectedAccount,
+}) {
+  const [form] = Form.useForm();
+  const handleProceedClick = async () => {
+    try {
+      const values = await form.validateFields();
+      const { mobileNumber } = values;
+
+      if (
+        mobileNumber &&
+        mobileNumber[0] === "9" &&
+        /^\d{10}$/.test(mobileNumber)
+      ) {
+        const formattedMobileNumber = "+63" + mobileNumber;
+        onConfirm(formattedMobileNumber, selectedAccount, 4);
+      } else {
+        form.setFields([
+          {
+            name: "mobileNumber",
+            errors: ["Please enter a valid mobile number"],
+          },
+        ]);
+      }
+    } catch (errorInfo) {
+      console.log("Validation failed:", errorInfo);
+    }
+  };
+  const handleMobileChange = (e) => {
+    let formattedAmount = e.target.value.replace(/[^0-9.]/g, "");
+    form.setFieldsValue({ mobileNumber: formattedAmount });
   };
 
-  const { Option } = Select;
-  const selectBefore = (
-    <Select defaultValue="+63">
-      <Option value="+63">+63</Option>
-      <Option value="+62">+62</Option>
-    </Select>
-  );
   return (
     <div className="update-wrapper">
       <IconWithHeader
-        iconSrc="/icons/update-number.svg"
+        iconSrc="/icons/mobile-number.svg"
         headerText="Update Mobile Number"
       />
-      <div className="fill-details-wrapper">
-        <p className="text-medium center">Fill in the details</p>
-        <div className="birthdate">
-          <p className="text-small">Birthdate</p>
-          <SelectBirthdate />
+      <Form
+        className="update-mobile-number-form"
+        form={form}
+        onFinish={handleProceedClick}
+      >
+        <div className="fill-details-wrapper">
+          <p className="text-medium center">Fill in the details</p>
+          <div className="birthdate">
+            <p className="text-small">Birthdate</p>
+            <SelectBirthdate form={form} />
+          </div>
+          <div className="enter-mobile-number">
+            <p className="text-small">New Mobile Number</p>
+            <Form.Item
+              name="mobileNumber"
+              rules={[
+                {
+                  required: true,
+                  message: "Please enter your new mobile number",
+                },
+              ]}
+            >
+              <Input
+                prefix="+63"
+                placeholder="Ex. 9170000000"
+                className="input-mobile-number"
+                inputMode="numeric"
+                maxLength={10}
+                minLength={10}
+                onChange={handleMobileChange}
+              />
+            </Form.Item>
+          </div>
         </div>
-        <div className="number">
-          <p className="text-small">New Mobile Number</p>
-          <Input
-            addonBefore={selectBefore}
-            placeholder="Ex. 9170000000"
-            className="input-mobile-number"
+        <div className="security-warning">
+          <p className="text-xs">
+            Your new mobile number will be used to receive the One-Time PIN
+            sensitive transactions
+          </p>
+        </div>
+        <div className="button-wrapper">
+          <Button label="CANCEL" onClick={onCancel} className="prev" />
+          <Button
+            type="primary"
+            htmlType="submit"
+            label="CONFIRM"
+            className="next"
           />
         </div>
-      </div>
-      <div className="security-warning">
-        <p className="text-xs">
-          Your new mobile number will be used to receive the One-Time PIN
-          sensitive transactions
-        </p>
-      </div>
-      <div className="button-wrapper">
-        <Button label="CANCEL" onClick={onCancel} className="prev" />
-        <Button label="CONFIRM" onClick={handleProceedClick} className="next" />
-      </div>
+      </Form>
       <LogoWrapper />
     </div>
   );

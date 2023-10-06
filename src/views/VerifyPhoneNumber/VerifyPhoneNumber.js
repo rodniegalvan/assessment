@@ -6,14 +6,25 @@ import LogoWrapper from "../../components/layout/logo-wrapper/LogoWrapper";
 import Button from "../../components/buttons/Button";
 import LinkButton from "../../components/buttons/link-buttons/LinkButton";
 import IconWithHeader from "../../components/icons/icons-header/IconsHeader";
+//utils
+import { maskMobileNumber } from "../../utils/maskCardNumber";
+function VerifyPhoneNumber({
+  onProceed,
+  onCancel,
+  selectedAccount,
+  phoneNumber,
+}) {
+  // Find the corresponding phone number based on the selected account
 
-function VerifyPhoneNumber({ onProceed, onCancel, handleUpdateNumber }) {
-  const phoneNumber = "+63951***2047";
-
-  const handleProceedClick = () => {
-    onProceed(phoneNumber);
+  const handleLinkButtonClick = () => {
+    // Pass selected account and step 3 when LinkButton is clicked
+    onProceed(phoneNumber, selectedAccount, 3);
   };
 
+  const handleProceedClick = () => {
+    // Pass selected account and step 4 when PROCEED button is clicked
+    onProceed(phoneNumber, selectedAccount, 4);
+  };
   return (
     <div className="verify-wrapper">
       <IconWithHeader
@@ -25,11 +36,11 @@ function VerifyPhoneNumber({ onProceed, onCancel, handleUpdateNumber }) {
       </p>
       <div className="number-wrapper">
         <p className="text-medium">Is this your phone number?</p>
-        <p className="number">{phoneNumber}</p>
+        <p className="number"> {maskMobileNumber(phoneNumber)}</p>
         <p className="text-small">
           <LinkButton
-            onClick={handleUpdateNumber}
-            label="Not you phone number"
+            onClick={handleLinkButtonClick}
+            label="Not your phone number"
           />
         </p>
       </div>

@@ -1,63 +1,69 @@
-  .update-wrapper{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    height: 100%;
-    width: 100%;
-    justify-content: space-between;
-    box-sizing: border-box;
-    padding: 2em 2em 2em 2em;
-  }
-
-  .fill-details-wrapper{
-    width: 270px;
-  }
-  .birthdate p, .number p{
-    margin-bottom: 0.25em;
-  }
-.security-warning{
-  padding: 0.5em 4em;
-  background-color: #C9DEF2;
-  width: 30em;
+.update-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  justify-content: space-between;
+  box-sizing: border-box;
+  padding: 0 2em;
+}
+.update-wrapper .ant-form-item-explain-error {
+  font-size: 10px !important;
+  text-align: center;
+}
+.update-mobile-number-form {
   width: 100%;
   display: flex;
+  flex-direction: column;
   align-items: center;
+  box-sizing: border-box;
 }
-.input-mobile-number{
-  border: none !important;
+
+.fill-details-wrapper {
+  width: 270px;
 }
-.input-mobile-number span{
-  border: none !important;
-  background-color: transparent !important;
+
+.birthdate p,
+.enter-mobile-number p {
+  margin-bottom: 0.25em;
+  text-align: start;
 }
-.input-mobile-number span span div div span{
-  border: none !important;
-  border-bottom: 1px solid #AEAEAE !important;
-  border-radius: 0 !important;
-  font-size: 12px !important;
-  line-height: 30px;
+
+.security-warning {
+  padding: 1em 64px;
+  background-color: #c9def2;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  text-align: center;
 }
-.input-mobile-number span span div div
-{
-  padding: 0 1.25em 0 0 !important;
-}
-.input-mobile-number span input{
-  border: none !important;
-  border-bottom: 1px solid #AEAEAE !important;
-  border-radius: 0 !important;
-  line-height: 29px;
-  padding: 0;
-  font-size: 12px !important;
-}
-.input-mobile-number span input:focus{
-  box-shadow: none;
+
+.input-mobile-number {
   border: none;
+  box-shadow: none !important;
+  border-bottom: 1px solid #aeaeae !important;
+  border-radius: 0;
+  padding: 0.25em 0;
+  line-height: 15px !important;
+  font-size: 12px;
+  text-align: center;
 }
-@media(max-width: 640px){
-  .security-warning{
-  padding: 0.5em 3em;
+
+.input-mobile-number input::placeholder {
+  font-size: 10px;
+  line-height: 15px;
+}
+
+@media (max-width: 640px) {
+  .security-warning {
+    width: 100vw;
+    box-sizing: border-box;
+    padding: 0.5em 1.5em;
   }
-    .birthdate p, .number p{
+
+  .birthdate p,
+  .number p {
     text-align: start;
   }
 }

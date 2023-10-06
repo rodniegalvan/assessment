@@ -8,20 +8,46 @@ export const users = [
         type: "Savings Account",
         cardTypeImg: "/images/visa.png",
         paymentMethod: "Credit Card",
-        cardNumber: "1234 5678 9012 3456", // 16-digit card number
+        cardNumber: "1234 5678 9012 3456",
         phoneNumber: "+639517042047",
-        cvc: "123", // CVC (Card Verification Code)
-        expirationDate: "12/25", // MM/YY format for expiration date
+        cvc: "123",
+        expirationDate: "12/25",
       },
       {
         id: 2,
         type: "Savings Account",
         cardTypeImg: "/images/mastercard.png",
         paymentMethod: "Bank Transfer",
-        cardNumber: "9876 5432 1098 7654", // Second bank account's card number
+        cardNumber: "9876 5432 1098 7654",
         phoneNumber: "+639123456789",
-        cvc: "456", // Second bank account's CVC
-        expirationDate: "11/24", // Second bank account's expiration date
+        cvc: "456",
+        expirationDate: "11/24",
+      },
+    ],
+  },
+  {
+    id: 2,
+    name: "John Doe",
+    bankAccounts: [
+      {
+        id: 3,
+        type: "Savings Account",
+        cardTypeImg: "/images/amex.png",
+        paymentMethod: "Credit Card",
+        cardNumber: "1111 2222 3333 4444",
+        phoneNumber: "+639555555555",
+        cvc: "789",
+        expirationDate: "10/23",
+      },
+      {
+        id: 4,
+        type: "Checking Account",
+        cardTypeImg: "/images/visa.png",
+        paymentMethod: "Bank Transfer",
+        cardNumber: "2222 3333 4444 5555",
+        phoneNumber: "+639666666666",
+        cvc: "321",
+        expirationDate: "09/22",
       },
     ],
   },

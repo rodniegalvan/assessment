@@ -1,8 +1,19 @@
-.birthdate-wrapper{
-    display:flex;
-    width: 100%;
-    gap: 0.5em;
+.birthdate-wrapper {
+  display: flex;
+  width: 100%;
+  gap: 0.5em;
 }
-.birthdate-wrapper div span{
-    font-size: 10px;
+.birthdate-wrapper div {
+  width: 100%;
+  max-width: 100px;
+  text-align: start;
+}
+.ant-select-selection-placeholder {
+  font-size: 10px !important;
+}
+.ant-select-selection-item {
+  font-size: 12px !important;
+}
+.ant-select-selection-search-input {
+  font-size: 12px !important;
 }

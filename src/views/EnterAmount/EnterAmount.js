@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Input, Form } from "antd";
 
 import "./EnterAmount.css";
@@ -10,26 +10,49 @@ import DebitRadio from "../../components/debit-account-radio/DebitRadio";
 //constants
 import { users } from "../../constants/Users";
 
-function EnterAmount({ onNext }) {
-  const [form] = Form.useForm(); // Create a form instance
-  const [selectedAccount, setSelectedAccount] = useState(
-    users[0].bankAccounts[0].id
-  );
+function EnterAmount({ onNext, loggedInUserId }) {
+  const [form] = Form.useForm();
+  const [selectedAccount, setSelectedAccount] = useState(null);
+  const [phoneNumber, setPhoneNumber] = useState("");
+
+  useEffect(() => {
+    // Find the currently logged-in user based on loggedInUserId
+    const loggedInUser = users.find((user) => user.id === loggedInUserId);
+
+    // If the logged-in user is found, set the default selectedAccountId
+    if (loggedInUser) {
+      setSelectedAccount(loggedInUser.bankAccounts[0]?.id || null);
+
+      // Get the phone number of the selected bank account
+      const selectedBankAccount = loggedInUser.bankAccounts.find(
+        (account) => account.id === loggedInUser.bankAccounts[0]?.id
+      );
+
+      // Set the initial phone number
+      const initialPhoneNumber = selectedBankAccount?.phoneNumber || "";
+      setPhoneNumber(initialPhoneNumber);
+    }
+  }, [loggedInUserId]);
+
   const handleAmountChange = (e) => {
     let formattedAmount = e.target.value.replace(/[^0-9.]/g, "");
     formattedAmount = formattedAmount.replace(/\B(?=(\d{3})+(?!\d))/g, ",");
     form.setFieldsValue({ amount: formattedAmount });
   };
 
+  const handleSubmit = (values) => {
+    onNext(phoneNumber, selectedAccount, 2);
+  };
+
   const handleAccountSelection = (accountValue) => {
     setSelectedAccount(accountValue);
-    form.setFieldsValue({ selectedAccountGroup: accountValue });
+    const selectedBankAccount = users
+      .find((user) => user.id === loggedInUserId)
+      .bankAccounts.find((account) => account.id === accountValue);
+    const newPhoneNumber = selectedBankAccount?.phoneNumber || "";
+    setPhoneNumber(newPhoneNumber); // Set the phone number
+    form.setFieldsValue({ selectedAccount: accountValue });
   };
-
-  const handleSubmit = (values) => {
-    onNext();
-  };
-
   return (
     <div className="enter-amount-wrapper">
       <img src="/images/bpi.png" alt="BPI Logo" width="163" />
@@ -37,7 +60,7 @@ function EnterAmount({ onNext }) {
         className="form-container"
         form={form}
         onFinish={handleSubmit}
-        initialValues={{ amount: "", selectedAccount: "" }}
+        initialValues={{ amount: "", selectedAccount: selectedAccount }}
       >
         <p className="text-large">Enter Amount</p>
         <Form.Item
@@ -71,6 +94,7 @@ function EnterAmount({ onNext }) {
               users={users}
               selectedAccount={selectedAccount}
               onAccountChange={handleAccountSelection}
+              loggedInUserId={loggedInUserId}
             />
           </Form.Item>
         </div>

@@ -11,8 +11,9 @@ import {
   handleOtpInputChange,
   handleOtpInputKeyDown,
 } from "../../utils/handleOtpChangeInput";
+import { maskMobileNumber } from "../../utils/maskCardNumber";
 
-function OTP({ onCancel, onNext, phoneNumber, onResendOTP }) {
+function OTP({ onCancel, onNext, phoneNumber, selectedAccount, onResendOTP }) {
   const [otpError, setOtpError] = useState(false);
 
   const [otp, setOtp] = useState(["", "", "", "", "", ""]);
@@ -37,7 +38,7 @@ function OTP({ onCancel, onNext, phoneNumber, onResendOTP }) {
     const enteredOtp = otp.join("");
     if (enteredOtp.length === 6) {
       setOtpError(false);
-      onNext();
+      onNext(phoneNumber, selectedAccount, 5);
     } else {
       setOtpError(true);
     }
@@ -56,7 +57,7 @@ function OTP({ onCancel, onNext, phoneNumber, onResendOTP }) {
       <p className="text-medium">
         Enter the 6-digit code from the SMS we sent to
       </p>
-      <p className="number">{phoneNumber}</p>
+      <p className="number">{maskMobileNumber(phoneNumber)}</p>
       <div className="otp-input-container">
         {Array.from({ length: 6 }, (_, index) => (
           <input

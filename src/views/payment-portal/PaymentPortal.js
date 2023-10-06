@@ -14,36 +14,27 @@ import "./PaymentPortal.css";
 
 function PaymentPortal() {
   const [step, setStep] = useState(1);
+  const [selectedAccount, setSelectedAccount] = useState("");
   const [phoneNumber, setPhoneNumber] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
 
-  // ... (other code)
-
-  const handleNext = async (newPhoneNumber, newStep) => {
+  const handleNext = async (newPhoneNumber, newSelectedAccount, newStep) => {
     setIsLoading(true);
     try {
       if (newStep) {
         // If a new step is provided, set the step accordingly
-        setStep(newStep);
-      } else if (step === 1) {
-        // Simulate API call or asynchronous operation
-        await new Promise((resolve) => setTimeout(resolve, 1000));
-        setStep(2);
-      } else if (step === 2) {
-        // Simulate API call or asynchronous operation
-        await new Promise((resolve) => setTimeout(resolve, 1000));
-        setPhoneNumber(newPhoneNumber);
-        setStep(4); // Skip phone number verification and go to OTP (step 4)
-      } else if (step === 3) {
-        // Simulate API call or asynchronous operation
-        await new Promise((resolve) => setTimeout(resolve, 1000));
-        setPhoneNumber(newPhoneNumber);
-        setStep(4); // Skip phone number verification and go to OTP (step 4)
-      } else if (step === 4) {
-        // Simulate API call or asynchronous operation
-        setIsSuccess(true); // Set to true for success
-        setStep(5);
+        if (newStep === 5) {
+          setIsSuccess(true);
+          setStep(newStep);
+        } else if (newStep === 3) {
+          setStep(newStep);
+        } else {
+          await new Promise((resolve) => setTimeout(resolve, 1000));
+          setSelectedAccount(newSelectedAccount);
+          setPhoneNumber(newPhoneNumber);
+          setStep(newStep);
+        }
       }
     } catch (error) {
       console.log(error);
@@ -51,11 +42,6 @@ function PaymentPortal() {
     } finally {
       setIsLoading(false);
     }
-  };
-  const handleUpdateNumber = async () => {
-    // Simulate API call or asynchronous operation
-    await new Promise((resolve) => setTimeout(resolve, 1000));
-    setStep(3); // Set the step to 3 to navigate to the UpdatePhoneNumber component
   };
 
   const handleReturn = () => {
@@ -69,22 +55,36 @@ function PaymentPortal() {
     <main>
       {isLoading && <LoadingSpinner />}
       <div className="payment-form">
-        {step === 1 && <EnterAmount onNext={handleNext} />}
+        {step === 1 && (
+          <EnterAmount
+            onNext={handleNext}
+            loggedInUserId={1}
+            selectedAccount={selectedAccount}
+            phoneNumber={phoneNumber}
+          />
+        )}
         {step === 2 && (
           <VerifyPhoneNumber
             onProceed={handleNext}
             onCancel={handleReturn}
-            handleUpdateNumber={handleUpdateNumber} // Pass the function here
+            selectedAccount={selectedAccount}
+            phoneNumber={phoneNumber}
           />
         )}
         {step === 3 && (
-          <UpdatePhoneNumber onConfirm={handleNext} onCancel={handleReturn} />
+          <UpdatePhoneNumber
+            onConfirm={handleNext}
+            onCancel={handleReturn}
+            selectedAccount={selectedAccount}
+            phoneNumber={phoneNumber}
+          />
         )}
         {step === 4 && (
           <OTP
             onNext={handleNext}
-            onReturn={handleReturn}
+            onCancel={handleReturn}
             phoneNumber={phoneNumber}
+            selectedAccount={selectedAccount} // Pass selected account
           />
         )}
         {step === 5 && (

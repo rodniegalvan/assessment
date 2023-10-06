@@ -1,83 +1,66 @@
 import React from "react";
-import { Select } from "antd";
-import "./SelectBirthdate.css";
-//constants
+import { Select, Form } from "antd";
 import { years, months, days } from "../../../constants/Dates";
+import "./SelectBirthdate.css";
 
 function SelectBirthdate() {
   const { Option } = Select;
+
   return (
     <div className="birthdate-wrapper">
-      <Select
-        showSearch
-        style={{
-          width: 200,
-        }}
-        placeholder="YYYY"
-        optionFilterProp="children"
-        filterOption={(input, option) =>
-          option.children.toLowerCase().includes(input.toLowerCase())
-        }
-        filterSort={(optionA, optionB) =>
-          optionA.children
-            .toLowerCase()
-            .localeCompare(optionB.children.toLowerCase())
-        }
+      <Form.Item
+        name="birthYear"
+        rules={[
+          {
+            required: true,
+            message: "Please select a year",
+          },
+        ]}
       >
-        {/* Map over the options and create Option components */}
-        {years.map((year) => (
-          <Option key={year.value} value={year.value}>
-            {year.label}
-          </Option>
-        ))}
-      </Select>
-      <Select
-        showSearch
-        style={{
-          width: 200,
-        }}
-        placeholder="MM"
-        optionFilterProp="children"
-        filterOption={(input, option) =>
-          option.children.toLowerCase().includes(input.toLowerCase())
-        }
-        filterSort={(optionA, optionB) =>
-          optionA.children
-            .toLowerCase()
-            .localeCompare(optionB.children.toLowerCase())
-        }
+        <Select showSearch placeholder="YYYY">
+          {years.map((year) => (
+            <Option key={year.value} value={year.value}>
+              {year.label}
+            </Option>
+          ))}
+        </Select>
+      </Form.Item>
+      <Form.Item
+        name="birthMonth"
+        rules={[
+          {
+            required: true,
+            message: "Please select a month",
+          },
+        ]}
       >
-        {/* Map over the options and create Option components */}
-        {months.map((month) => (
-          <Option key={month.value} value={month.value}>
-            {month.label}
-          </Option>
-        ))}
-      </Select>
-      <Select
-        showSearch
-        style={{
-          width: 200,
-        }}
-        placeholder="DD"
-        optionFilterProp="children"
-        filterOption={(input, option) =>
-          option.children.toLowerCase().includes(input.toLowerCase())
-        }
-        filterSort={(optionA, optionB) =>
-          optionA.children
-            .toLowerCase()
-            .localeCompare(optionB.children.toLowerCase())
-        }
+        <Select showSearch placeholder="MM">
+          {months.map((month) => (
+            <Option key={month.value} value={month.value}>
+              {month.label}
+            </Option>
+          ))}
+        </Select>
+      </Form.Item>
+      <Form.Item
+        name="birthDay"
+        rules={[
+          {
+            required: true,
+            message: "Please select a day",
+          },
+        ]}
       >
-        {/* Map over the options and create Option components */}
-        {days.map((day) => (
-          <Option key={day.value} value={day.value}>
-            {day.label}
-          </Option>
-        ))}
-      </Select>
+        <Select showSearch placeholder="DD">
+          {days.map((day) => (
+            <Option key={day.value} value={day.value}>
+              {day.label}
+            </Option>
+          ))}
+        </Select>
+      </Form.Item>
     </div>
   );
 }
+
 export default SelectBirthdate;
