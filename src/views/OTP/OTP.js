@@ -5,6 +5,7 @@ import "./OTP.css";
 import LogoWrapper from "../../components/layout/logo-wrapper/LogoWrapper";
 import Button from "../../components/buttons/Button";
 import LinkButton from "../../components/buttons/link-buttons/LinkButton";
+import IconWithHeader from "../../components/icons/icons-header/IconsHeader";
 //utils
 import {
   handleOtpInputChange,
@@ -51,10 +52,7 @@ function OTP({ onCancel, onNext, phoneNumber, onResendOTP }) {
   };
   return (
     <div className="otp-wrapper">
-      <div className="icon-wrapper">
-        <img src="/icons/otp.svg" alt="OTP Icon" />
-      </div>
-      <p className="text-large">One Time Pin</p>
+      <IconWithHeader iconSrc="/icons/otp.svg" headerText="One Time Pin" />
       <p className="text-medium">
         Enter the 6-digit code from the SMS we sent to
       </p>

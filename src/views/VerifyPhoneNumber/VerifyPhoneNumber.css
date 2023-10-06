@@ -1,4 +1,4 @@
-  .verify-wrapper{
+.verify-wrapper{
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -6,17 +6,7 @@
     width: 100%;
     justify-content: space-between;
     box-sizing: border-box;
-    padding: 2em 2em 1em 2em;
-  }
-  .icon-wrapper {
-    width: 100px;
-    height: 100px;
-    background-color: #007AE2;;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 50%;
-    margin-bottom: 1em;
+    padding: 2em 2em 2em 2em;
   }
 .number-wrapper{
   text-align: center;

@@ -1,0 +1,63 @@
+  .update-wrapper{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    justify-content: space-between;
+    box-sizing: border-box;
+    padding: 2em 2em 2em 2em;
+  }
+
+  .fill-details-wrapper{
+    width: 270px;
+  }
+  .birthdate p, .number p{
+    margin-bottom: 0.25em;
+  }
+.security-warning{
+  padding: 0.5em 4em;
+  background-color: #C9DEF2;
+  width: 30em;
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+.input-mobile-number{
+  border: none !important;
+}
+.input-mobile-number span{
+  border: none !important;
+  background-color: transparent !important;
+}
+.input-mobile-number span span div div span{
+  border: none !important;
+  border-bottom: 1px solid #AEAEAE !important;
+  border-radius: 0 !important;
+  font-size: 12px !important;
+  line-height: 30px;
+}
+.input-mobile-number span span div div
+{
+  padding: 0 1.25em 0 0 !important;
+}
+.input-mobile-number span input{
+  border: none !important;
+  border-bottom: 1px solid #AEAEAE !important;
+  border-radius: 0 !important;
+  line-height: 29px;
+  padding: 0;
+  font-size: 12px !important;
+}
+.input-mobile-number span input:focus{
+  box-shadow: none;
+  border: none;
+}
+@media(max-width: 640px){
+  .security-warning{
+  padding: 0.5em 3em;
+  }
+    .birthdate p, .number p{
+    text-align: start;
+  }
+}

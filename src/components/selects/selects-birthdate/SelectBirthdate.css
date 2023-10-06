@@ -1,0 +1,8 @@
+.birthdate-wrapper{
+    display:flex;
+    width: 100%;
+    gap: 0.5em;
+}
+.birthdate-wrapper div span{
+    font-size: 10px;
+}
