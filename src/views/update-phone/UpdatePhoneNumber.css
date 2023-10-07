@@ -46,14 +46,12 @@
   border-radius: 0;
   padding: 0.25em 0;
   font-size: 12px;
-  align-items: center;
-  display: flex;
   text-align: center;
+  font-family: "Poppins", sans-serif;
 }
 
 .input-mobile-number input::placeholder {
   font-size: 10px;
-  line-height: 15px !important;
 }
 
 @media (max-width: 640px) {
