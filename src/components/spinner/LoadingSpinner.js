@@ -1,12 +1,12 @@
 import React from "react";
 import "./LoadingSpinner.css";
 
-import { CgSpinner } from "react-icons/cg";
+import { AiOutlineLoading3Quarters } from "react-icons/ai";
 
 const LoadingSpinner = () => {
   return (
     <div className="loading-spinner">
-      <CgSpinner className="spinner-icon" />
+      <AiOutlineLoading3Quarters className="spinner-icon" />
     </div>
   );
 };

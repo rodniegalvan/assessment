@@ -44,12 +44,16 @@ function OTP({ onCancel, onNext, phoneNumber, selectedAccount, onResendOTP }) {
     }
   };
   const handleResendClick = () => {
-    // Simulate OTP resend logic
     // You can replace this with your actual logic
     console.log("Resending OTP...");
 
     // Set the countdown timer
     setResendTimeout(10);
+  };
+  const handleEnterKeyPress = (e) => {
+    if (e.key === "Enter") {
+      handleOtpSubmit();
+    }
   };
   return (
     <div className="otp-wrapper">
@@ -68,6 +72,7 @@ function OTP({ onCancel, onNext, phoneNumber, selectedAccount, onResendOTP }) {
             value={otp[index] || ""}
             onChange={(e) => handleOtpInputChange(e, index, otp, setOtp)}
             onKeyDown={(e) => handleOtpInputKeyDown(e, index, otp)}
+            onKeyUp={handleEnterKeyPress}
           />
         ))}
       </div>
