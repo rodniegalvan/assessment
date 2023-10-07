@@ -45,14 +45,15 @@
   border-bottom: 1px solid #aeaeae !important;
   border-radius: 0;
   padding: 0.25em 0;
-  line-height: 15px !important;
   font-size: 12px;
+  align-items: center;
+  display: flex;
   text-align: center;
 }
 
 .input-mobile-number input::placeholder {
   font-size: 10px;
-  line-height: 15px;
+  line-height: 15px !important;
 }
 
 @media (max-width: 640px) {

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef } from "react";
 import "./UpdatePhoneNumber.css";
 import { Input, Form } from "antd";
 
@@ -15,6 +15,8 @@ function UpdatePhoneNumber({
   selectedAccount,
 }) {
   const [form] = Form.useForm();
+  const mobileNumberInputRef = useRef(null);
+
   const handleProceedClick = async () => {
     try {
       const values = await form.validateFields();
@@ -43,7 +45,13 @@ function UpdatePhoneNumber({
     let formattedAmount = e.target.value.replace(/[^0-9.]/g, "");
     form.setFieldsValue({ mobileNumber: formattedAmount });
   };
-
+  const handleMobileInputKeyPress = (e) => {
+    if (e.key === "Enter") {
+      e.preventDefault();
+      mobileNumberInputRef.current.blur();
+      handleProceedClick();
+    }
+  };
   return (
     <div className="update-wrapper">
       <IconWithHeader
@@ -78,8 +86,9 @@ function UpdatePhoneNumber({
                 className="input-mobile-number"
                 inputMode="numeric"
                 maxLength={10}
-                minLength={10}
                 onChange={handleMobileChange}
+                onKeyPress={handleMobileInputKeyPress}
+                ref={mobileNumberInputRef}
               />
             </Form.Item>
           </div>
@@ -92,12 +101,7 @@ function UpdatePhoneNumber({
         </div>
         <div className="button-wrapper">
           <Button label="CANCEL" onClick={onCancel} className="prev" />
-          <Button
-            type="primary"
-            htmlType="submit"
-            label="CONFIRM"
-            className="next"
-          />
+          <Button type="submit" label="CONFIRM" className="next" />
         </div>
       </Form>
       <LogoWrapper />

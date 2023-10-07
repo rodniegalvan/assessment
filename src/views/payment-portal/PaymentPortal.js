@@ -13,7 +13,7 @@ import LoadingSpinner from "../../components/spinner/LoadingSpinner";
 import "./PaymentPortal.css";
 
 function PaymentPortal() {
-  const [step, setStep] = useState(1);
+  const [step, setStep] = useState(3);
   const [selectedAccount, setSelectedAccount] = useState("");
   const [phoneNumber, setPhoneNumber] = useState("");
   const [isLoading, setIsLoading] = useState(false);
