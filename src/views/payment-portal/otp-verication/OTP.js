@@ -2,16 +2,16 @@ import React, { useState, useEffect } from "react";
 import "./OTP.css";
 
 //components
-import LogoWrapper from "../../components/layout/logo-wrapper/LogoWrapper";
-import Button from "../../components/buttons/Button";
-import LinkButton from "../../components/buttons/link-buttons/LinkButton";
-import IconWithHeader from "../../components/icons/icons-header/IconsHeader";
+import LogoWrapper from "../../../components/layout/logo-wrapper/LogoWrapper";
+import Button from "../../../components/buttons/Button";
+import LinkButton from "../../../components/buttons/link-buttons/LinkButton";
+import IconWithHeader from "../../../components/icons/icons-header/IconsHeader";
 //utils
 import {
   handleOtpInputChange,
   handleOtpInputKeyDown,
-} from "../../utils/handleOtpChangeInput";
-import { maskMobileNumber } from "../../utils/maskCardNumber";
+} from "../../../utils/handleOtpChangeInput";
+import { maskMobileNumber } from "../../../utils/maskCardNumber";
 
 function OTP({ onCancel, onNext, phoneNumber, selectedAccount, onResendOTP }) {
   const [otpError, setOtpError] = useState(false);
@@ -34,6 +34,8 @@ function OTP({ onCancel, onNext, phoneNumber, selectedAccount, onResendOTP }) {
       }
     };
   }, [resendTimeout]);
+
+  //verify otp sdk handle otp verify
   const handleOtpSubmit = () => {
     const enteredOtp = otp.join("");
     if (enteredOtp.length === 6) {

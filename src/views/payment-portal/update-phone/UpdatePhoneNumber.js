@@ -3,10 +3,10 @@ import "./UpdatePhoneNumber.css";
 import { Input, Form } from "antd";
 
 //components
-import LogoWrapper from "../../components/layout/logo-wrapper/LogoWrapper";
-import SelectBirthdate from "../../components/selects/selects-birthdate/SelectBirthdate";
-import IconWithHeader from "../../components/icons/icons-header/IconsHeader";
-import Button from "../../components/buttons/Button";
+import LogoWrapper from "../../../components/layout/logo-wrapper/LogoWrapper";
+import SelectBirthdate from "../../../components/selects/selects-birthdate/SelectBirthdate";
+import IconWithHeader from "../../../components/icons/icons-header/IconsHeader";
+import Button from "../../../components/buttons/Button";
 
 function UpdatePhoneNumber({
   onConfirm,

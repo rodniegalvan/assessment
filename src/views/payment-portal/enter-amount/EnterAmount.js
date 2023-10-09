@@ -4,11 +4,11 @@ import { Input, Form } from "antd";
 import "./EnterAmount.css";
 
 //components
-import Button from "../../components/buttons/Button";
-import DebitRadio from "../../components/debit-account-radio/DebitRadio";
+import Button from "../../../components/buttons/Button";
+import DebitRadio from "../../../components/debit-account-radio/DebitRadio";
 
 //constants
-import { users } from "../../constants/Users";
+import { users } from "../../../constants/Users";
 
 function EnterAmount({ onNext, loggedInUserId }) {
   const [form] = Form.useForm();

@@ -2,22 +2,19 @@ import React from "react";
 import "./VerifyPhoneNumber.css";
 
 //components
-import LogoWrapper from "../../components/layout/logo-wrapper/LogoWrapper";
-import Button from "../../components/buttons/Button";
-import LinkButton from "../../components/buttons/link-buttons/LinkButton";
-import IconWithHeader from "../../components/icons/icons-header/IconsHeader";
+import LogoWrapper from "../../../components/layout/logo-wrapper/LogoWrapper";
+import Button from "../../../components/buttons/Button";
+import LinkButton from "../../../components/buttons/link-buttons/LinkButton";
+import IconWithHeader from "../../../components/icons/icons-header/IconsHeader";
 //utils
-import { maskMobileNumber } from "../../utils/maskCardNumber";
+import { maskMobileNumber } from "../../../utils/maskCardNumber";
 function VerifyPhoneNumber({
   onProceed,
   onCancel,
   selectedAccount,
   phoneNumber,
 }) {
-  // Find the corresponding phone number based on the selected account
-
   const handleLinkButtonClick = () => {
-    // Pass selected account and step 3 when LinkButton is clicked
     onProceed(phoneNumber, selectedAccount, 3);
   };
 
@@ -40,7 +37,7 @@ function VerifyPhoneNumber({
         <p className="text-small">
           <LinkButton
             onClick={handleLinkButtonClick}
-            label="Not your phone number"
+            label="Not your phone number?"
           />
         </p>
       </div>

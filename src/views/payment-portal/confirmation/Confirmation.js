@@ -2,8 +2,8 @@ import React, { useState, useEffect } from "react";
 import "./Confirmation.css";
 
 //components
-import LogoWrapper from "../../components/layout/logo-wrapper/LogoWrapper";
-import Button from "../../components/buttons/Button";
+import LogoWrapper from "../../../components/layout/logo-wrapper/LogoWrapper";
+import Button from "../../../components/buttons/Button";
 
 function Confirmation({ onReturn, isSuccess }) {
   const [isLoading, setIsLoading] = useState(true);

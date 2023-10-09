@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 
 //components
-import EnterAmount from "../EnterAmount/EnterAmount";
-import VerifyPhoneNumber from "../VerifyPhoneNumber/VerifyPhoneNumber";
-import OTP from "../OTP/OTP";
-import Confirmation from "../Confirmation/Confirmation";
-import UpdatePhoneNumber from "../update-phone/UpdatePhoneNumber";
+import EnterAmount from "./enter-amount/EnterAmount";
+import VerifyPhoneNumber from "./send-otp/VerifyPhoneNumber";
+import OTP from "./otp-verication/OTP";
+import Confirmation from "./confirmation/Confirmation";
+import UpdatePhoneNumber from "./update-phone/UpdatePhoneNumber";
 
 //reusable components
 import LoadingSpinner from "../../components/spinner/LoadingSpinner";
@@ -58,7 +58,7 @@ function PaymentPortal() {
         {step === 1 && (
           <EnterAmount
             onNext={handleNext}
-            loggedInUserId={1}
+            loggedInUserId={2}
             selectedAccount={selectedAccount}
             phoneNumber={phoneNumber}
           />
